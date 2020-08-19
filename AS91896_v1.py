@@ -6,7 +6,7 @@ while restart_loop == True:
   rotorua_regular_fare = 50
 
   #ask the user where their flight destinaiton is
-  print("Hello welcome to the Waikato Air discount programe, please fill in the following questions to sign up for our personised email of daily discount fares :)")
+  #print("Hello welcome to the Waikato Air discount programe, please fill in the following questions to sign up for our personised email of daily discount fares :)")
 
   #creating a defintion for errors in the program
   def error():
@@ -15,7 +15,7 @@ while restart_loop == True:
   def restart():
     restart_bool_loop = True
     while restart_bool_loop == True:
-      restart_bool = bool(input("Would you like to enter for another user? (Type 'YES' or 'NO'): ))
+      restart_bool = bool(input("Would you like to enter for another user? (Type 'YES' or 'NO'): "))
       restart_bool = restart_bool.upper()
       if restart_bool == "YES":
         restart_loop = True
@@ -46,7 +46,7 @@ while restart_loop == True:
   #code to get the input on whether the user can travel tommorow or not and to error catch invalid inputs
     next_day_loop = True
     while next_day_loop == True:
-      next_day = bool(input("Would you be able to travel to your destination tommorow (Type 'YES' or 'NO'): "))
+      next_day = str(input("Would you be able to travel to your destination tommorow (Type 'YES' or 'NO'): "))
       next_day = next_day.upper()
       if next_day == "YES":
         next_day_loop = False
@@ -74,7 +74,9 @@ while restart_loop == True:
         discount_fare = rotorua_regular_fare - discount
     return num_seats, discount, percentage_discount, discount_fare 
 
-def discount_paragraph(destinaiton, num_seats, discount, percentage_discount, discount_fare):
-  print("Hello, today we are able to offer you a {}% discount on your flight tommorow to {}. As there was {} seats left on the plane we are able to offer you the ... discount this being a discount of ${}, bringing the total cost of your flight to {} down to ${}. Thank you for working with Waikato Air and we look foward to seeing you tommorow for your flight" .format(percentage_discount, destinaiton, num_seats, discount, destinaiton, discount_fare))
+  def discount_paragraph(destinaiton, num_seats, discount, percentage_discount, discount_fare):
+    print("Hello, today we are able to offer you a {}% discount on your flight tommorow to {}. As there was {} seats left on the plane we are able to offer you the ... discount this being a discount of ${}, bringing the total cost of your flight to {} down to ${}. Thank you for working with Waikato Air and we look foward to seeing you tommorow for your flight" .format(percentage_discount, destinaiton, num_seats, discount, destinaiton, discount_fare))
 
-            
+  user_inputs(destination, next_day)
+  user_calculations(destination, next_day)
+  discount_paragraph(destinaiton, num_seats, discount, percentage_discount, discount_fare)            
