@@ -35,45 +35,45 @@ def restart():
       restart_bool_loop = True 
 
 #class defintion to gain all of the user inputs needed for discount calculations
-class user_inputs:
+#class user_inputs:
   #def __init__(self, destination, next_day):
     #self.destination = destination
     #self.next_day = next_day
   #code to get the destination input from the user and to error catch invalid inputs
-  def destination_input():
-    global destination
-    destination_loop = True
-    while destination_loop == True:
-      destination = str(input("Firstly, where are you looking to fly to out of our available destinations. (Type: Auckland, Wellington or Rotorua): "))
-      destination = destination.upper()
-      if destination == "AUCKLAND":
-          destination_loop = False
-      elif destination == "WELLINGTON":
-          destination_loop = False
-      elif destination == "ROTORUA":
-          destination_loop = False
-      else:
-          error()
-          destination_loop = True
-    return destination
-#code to get the input on whether the user can travel tommorow or not and to error catch invalid inputs
-  def next_day_input():
-    global next_day
-    next_day_loop = True
-    while next_day_loop == True:
-      next_day = str(input("Would you be able to travel to your destination tommorow (Type 'YES' or 'NO'): "))
-      next_day = next_day.upper()
-      if next_day == "YES":
-         next_day_loop = False
-      elif next_day == "NO":
-        print("Sorry there are no discounts we can offer you if you can't travel tommorow")
-        restart()
-        next_day_loop = False
-      else:
+def destination_input():
+  global destination
+  destination_loop = True
+  while destination_loop == True:
+    destination = str(input("Firstly, where are you looking to fly to out of our available destinations. (Type: Auckland, Wellington or Rotorua): "))
+    destination = destination.upper()
+    if destination == "AUCKLAND":
+        destination_loop = False
+    elif destination == "WELLINGTON":
+        destination_loop = False
+    elif destination == "ROTORUA":
+        destination_loop = False
+    else:
         error()
-        next_day_loop = True
+        destination_loop = True
+  return destination
+#code to get the input on whether the user can travel tommorow or not and to error catch invalid inputs
+def next_day_input():
+  global next_day
+  next_day_loop = True
+  while next_day_loop == True:
+    next_day = str(input("Would you be able to travel to your destination tommorow (Type 'YES' or 'NO'): "))
+    next_day = next_day.upper()
+    if next_day == "YES":
+        next_day_loop = False
+    elif next_day == "NO":
+      print("Sorry there are no discounts we can offer you if you can't travel tommorow")
+      restart()
+      next_day_loop = False
+    else:
+      error()
+      next_day_loop = True
 
-    return next_day
+  return next_day
 
 #class defintion to calculate all the discounts for the users fare
 def user_calculations():
@@ -102,7 +102,6 @@ def discount_paragraph():
   print("Hello, today we are able to offer you a {}% discount on your flight tommorow to {}. As there was {} seats left on the plane we are able to offer you the ... discount this being a discount of ${}, bringing the total cost of your flight to {} down to ${}. Thank you for working with Waikato Air and we look foward to seeing you tommorow for your flight" .format(percentage_discount, destination, num_seats, discount, destination, discount_fare))
 
 #running the defintions in the code
-user_inputs()
 destination_input()
 next_day_input()
 user_calculations()
