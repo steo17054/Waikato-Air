@@ -58,12 +58,24 @@ while main_program_loop == True:
 #creating a definition to get the users name input
   def name_input():
     global user_name
-    #user_name_loop = True
-    #while user_name_loop == True:
-    user_name = str(input("Hello I am the Waikato Air Bot here to calculate your discount, please enter your name for this order: "))
-    space()
-    user_name = user_name.title()
-    return user_name
+    user_name_loop = True
+    while user_name_loop == True:
+      user_name = str(input("Hello I am the Waikato Air Bot here to calculate your discount, please enter your name for this order (minimum of 2 characters): "))
+      space()
+      user_name = user_name.title()
+      if len(user_name) == 2:
+        return user_name
+        user_name_loop = False
+      elif len(user_name) > 2:
+        return user_name
+        user_name_loop = False
+      elif len(user_name) < 2:
+        print("Your name isn't long enough, please enter 2 or more charcters:")
+        space()
+        user_name_loop = True
+      else:
+        error()
+        user_name_loop = True
 
 #creating a definition to get the destination input from the user  
   def destination_input():
