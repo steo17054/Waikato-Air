@@ -62,6 +62,7 @@ while main_program_loop == True:
     while user_name_loop == True:
       user_name = str(input("Hello I am the Waikato Air Bot here to calculate your discount, please enter your name for this order (minimum of 2 characters): "))
       space()
+      user_name = user_name.strip()
       user_name = user_name.title()
       if len(user_name) == 2:
         return user_name
